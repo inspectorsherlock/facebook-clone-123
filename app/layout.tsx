@@ -36,9 +36,14 @@ export default function RootLayout({
           <Navbar />
           <div className="flex">
             <Sidebar />
-            <main className="ml-72 mt-16 p-4 flex-1 flex justify-between">
-              <div className="flex-1">{children}</div>
-              <FriendSuggestions /> {/* Add the FriendSuggestions component */}
+            <main className="ml-72 mt-16 p-4 flex-1">
+              {/* Main Content Area */}
+              <div className="flex justify-between gap-6">
+                <div className="flex-1">{children}</div>
+                <div className="w-72">
+                  <FriendSuggestions /> {/* Add the FriendSuggestions component */}
+                </div>
+              </div>
             </main>
           </div>
         </body>
