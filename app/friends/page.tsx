@@ -19,6 +19,7 @@ const Friends = () => {
     setFriends((prevFriends) => prevFriends.filter((friend) => friend.id !== id));
     alert(`Friend with ID ${id} added!`);
   };
+  
 
   return (
     <div className="flex flex-col items-center min-h-screen bg-gray-800 px-8">
