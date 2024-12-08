@@ -3,14 +3,13 @@ import Image from "next/image";
 import {
   AiFillHome,
   AiOutlineUser,
+  AiOutlineClockCircle,
+  AiOutlineBook,
+  AiOutlineAppstore,
   AiOutlineVideoCamera,
   AiOutlineShop,
-  AiOutlineClockCircle,
-  AiOutlineAppstore,
+  AiOutlineBars,
 } from "react-icons/ai";
-import { BiBookBookmark } from "react-icons/bi";
-import { MdOutlineFeed } from "react-icons/md";
-import { BsThreeDots } from "react-icons/bs";
 
 const Sidebar = () => {
   return (
@@ -39,45 +38,59 @@ const Sidebar = () => {
         </li>
 
         {/* Memories */}
-        <li className="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-800 cursor-pointer">
-          <AiOutlineClockCircle className="text-blue-500 text-xl" />
-          <span>Memories</span>
+        <li>
+          <button className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-md">
+            <AiOutlineClockCircle className="text-xl mr-4" />
+            Memories
+          </button>
         </li>
 
         {/* Saved */}
-        <li className="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-800 cursor-pointer">
-          <BiBookBookmark className="text-blue-500 text-xl" />
-          <span>Saved</span>
+        <li>
+          <button className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-md">
+            <AiOutlineBook className="text-xl mr-4" />
+            Saved
+          </button>
         </li>
 
         {/* Groups */}
-        <li className="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-800 cursor-pointer">
-          <AiOutlineAppstore className="text-blue-500 text-xl" />
-          <span>Groups</span>
+        <li>
+          <button className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-md">
+            <AiOutlineAppstore className="text-xl mr-4" />
+            Groups
+          </button>
         </li>
 
         {/* Videos */}
-        <li className="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-800 cursor-pointer">
-          <AiOutlineVideoCamera className="text-blue-500 text-xl" />
-          <span>Video</span>
+        <li>
+          <button className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-md">
+            <AiOutlineVideoCamera className="text-xl mr-4" />
+            Video
+          </button>
         </li>
 
         {/* Marketplace */}
-        <li className="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-800 cursor-pointer">
-          <AiOutlineShop className="text-blue-500 text-xl" />
-          <span>Marketplace</span>
+        <li>
+          <button className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-md">
+            <AiOutlineShop className="text-xl mr-4" />
+            Marketplace
+          </button>
         </li>
 
         {/* Feeds */}
-        <li className="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-800 cursor-pointer">
-          <MdOutlineFeed className="text-blue-500 text-xl" />
-          <span>Feeds</span>
+        <li>
+          <button className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-md">
+            <AiOutlineBars className="text-xl mr-4" />
+            Feeds
+          </button>
         </li>
 
         {/* See More */}
-        <li className="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-800 cursor-pointer">
-          <BsThreeDots className="text-gray-400 text-xl" />
-          <span>See more</span>
+        <li>
+          <button className="flex items-center px-4 py-2 hover:bg-gray-700 rounded-md">
+            <AiOutlineBars className="text-xl mr-4" />
+            See more
+          </button>
         </li>
       </ul>
 
@@ -87,7 +100,7 @@ const Sidebar = () => {
           Your shortcuts
         </h2>
         <ul className="space-y-4">
-          <li className="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-800 cursor-pointer">
+          <li className="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-700 cursor-pointer">
             <Image
               src="/8 Ball Pool Logo.png"
               alt="8 Ball Pool"
@@ -97,7 +110,7 @@ const Sidebar = () => {
             />
             <span>8 Ball Pool</span>
           </li>
-          <li className="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-800 cursor-pointer">
+          <li className="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-700 cursor-pointer">
             <Image
               src="/candy crush saga.png"
               alt="Candy Crush Saga"
@@ -107,7 +120,7 @@ const Sidebar = () => {
             />
             <span>Candy Crush Saga</span>
           </li>
-          <li className="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-800 cursor-pointer">
+          <li className="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-700 cursor-pointer">
             <Image
               src="/words with friends logo.jpeg"
               alt="Words With Friends"
