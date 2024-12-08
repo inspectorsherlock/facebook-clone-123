@@ -16,8 +16,8 @@ const Friends = () => {
   const [friends, setFriends] = useState(initialFriends);
 
   const handleAddFriend = (id: number) => {
+    setFriends((prevFriends) => prevFriends.filter((friend) => friend.id !== id));
     alert(`Friend with ID ${id} added!`);
-    // Implement actual backend logic here
   };
 
   return (
