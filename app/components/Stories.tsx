@@ -42,16 +42,17 @@ const Stories = () => {
       {/* Heading */}
       <h2 className="text-white text-xl font-bold mb-4">Stories</h2>
 
-      {/* Add Story Button */}
-      <div
-        className="create-story flex items-center justify-center bg-gray-700 rounded-full w-20 h-20 cursor-pointer"
-        onClick={handleAddStory}
-      >
-        <p className="text-white text-2xl font-bold">+</p>
-      </div>
+      {/* Stories Carousel and Add Story Button */}
+      <div className="flex items-center space-x-4 overflow-x-scroll">
+        {/* Add Story Button */}
+        <div
+          className="create-story flex items-center justify-center bg-gray-700 rounded-full w-20 h-20 cursor-pointer flex-shrink-0"
+          onClick={handleAddStory}
+        >
+          <p className="text-white text-2xl font-bold">+</p>
+        </div>
 
-      {/* Stories Carousel */}
-      <div className="flex overflow-x-scroll space-x-4 mt-4">
+        {/* Stories */}
         {stories.map((story) => (
           <div
             key={story.id}
