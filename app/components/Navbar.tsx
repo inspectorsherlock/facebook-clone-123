@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import {
   AiOutlineSearch,
@@ -11,6 +14,32 @@ import { FaFacebook, FaBell, FaUserCircle } from "react-icons/fa";
 import { BsMessenger } from "react-icons/bs";
 
 const Navbar = () => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const notifications = [
+    { id: 1, message: "John Doe sent you a friend request." },
+    { id: 2, message: "Jane Smith liked your post." },
+    { id: 3, message: "Alex Johnson commented on your status." },
+  ];
+
+  // Close dropdown if the user clicks outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <div className="fixed top-0 left-0 w-full h-16 bg-gray-800 flex items-center px-4 shadow-md z-50">
       {/* Left Section: Logo and Search */}
@@ -46,12 +75,36 @@ const Navbar = () => {
       {/* Right Section: Actions */}
       <div className="flex items-center space-x-4 flex-1 justify-end">
         <BsMessenger className="text-gray-400 text-2xl cursor-pointer hover:text-blue-500" />
-        <div className="relative">
-          <FaBell className="text-gray-400 text-2xl cursor-pointer hover:text-blue-500" />
-          {/* Notification Badge */}
-          <div className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1.5">
-            16
-          </div>
+        <div className="relative" ref={dropdownRef}>
+          <button
+            className="relative focus:outline-none"
+            onClick={() => setDropdownOpen((prev) => !prev)}
+          >
+            <FaBell className="text-gray-400 text-2xl cursor-pointer hover:text-blue-500" />
+            {/* Notification Badge */}
+            <div className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1.5">
+              {notifications.length}
+            </div>
+          </button>
+
+          {/* Dropdown Menu */}
+          {dropdownOpen && (
+            <div className="absolute right-0 mt-2 w-64 bg-gray-800 shadow-lg rounded-md z-50">
+              <div className="p-3 border-b border-gray-700 text-lg font-bold">
+                Notifications
+              </div>
+              <div className="max-h-60 overflow-y-auto">
+                {notifications.map((notification) => (
+                  <div
+                    key={notification.id}
+                    className="p-3 hover:bg-gray-700 text-sm text-white"
+                  >
+                    {notification.message}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
         <FaUserCircle className="text-gray-400 text-2xl cursor-pointer hover:text-blue-500" />
       </div>
