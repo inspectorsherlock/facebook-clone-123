@@ -46,6 +46,14 @@ export default function RootLayout({
               </div>
             </main>
           </div>
+          <footer className="bg-gray-800 text-gray-400 text-center py-4 mt-8">
+          <p className="text-sm">
+            <strong>NOTE:</strong> This site is a clone website. It is not the real,
+            official site. Its purpose is to look like the official site for portfolio
+            purposes. This site is not for active use. Do <strong>NOT</strong> enter your
+            credentials or share any personal information.
+          </p>
+        </footer>
         </body>
       </html>
     </ThemeProvider>
